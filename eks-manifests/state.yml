@@ -57,7 +57,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv
+  name: pv-1
   labels:
     type: database
     app: mysql
@@ -68,4 +68,20 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data"
+    path: "/mnt/data/pv-1"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-2
+  labels:
+    type: database
+    app: mysql
+spec:
+  storageClassName: gp2
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/pv-2"    
